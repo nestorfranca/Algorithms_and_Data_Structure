@@ -4,11 +4,11 @@ ELETRONICO. O programa deve ler os dados de um produto e imprimir os dados do pr
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef union tipo{
+typedef union tipo{ //Declarando uma union para o tipo do produto
     char ALIMENTO[20], BEBIDA[20], ELETRONICO[20];
 }Tipo;
 
-typedef struct produto{
+typedef struct produto{     //Declarando uma struct para armazenar os produtos
     char nome[80];
     float preco;
     Tipo tipo;
@@ -16,9 +16,10 @@ typedef struct produto{
 
 int main(void){
 
-    Produto* produto = (Produto*) malloc(sizeof(Produto));
+    Produto* produto = (Produto*) malloc(sizeof(Produto));     //Alocando memoria para o vetor produto
     if(produto == NULL){exit(1);}
 
+    //Solicitando os dados dos produtos
     printf("Digite o nome: \n");
     scanf(" %79[^\n]", produto->nome);
     printf("Digite o preco do produto: \n");
@@ -26,9 +27,10 @@ int main(void){
     printf("1 - Alimento \n2 - Bebida\n3 - Eletronico\nDigite o tipo do produto: \n");
     scanf(" %19[^\n]", produto->tipo.BEBIDA);
 
+    //Imprimindo os dados 
     printf("Dados do produto:\nNome: %s\nPreco: R$%.2f\nTipo: %s", produto->nome, produto->preco, produto->tipo.ALIMENTO);
 
-    free(produto);
+    free(produto);  //Limpando memoria
 
     return 0;
 }

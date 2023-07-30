@@ -3,11 +3,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef enum mes{
+typedef enum mes{   //Declando uma enum comecando do indice 1 para os meses
     JANEIRO=1, FEVEREIRO, MARCO, ABRIL, MAIO, JUNHO, JULHO, AGOSTO, SETEMBRO, OUTUBRO, NOVEMBRO, DEZEMBRO
 }Mes;
 
-typedef struct data{
+typedef struct data{    //Declarando uma struct para armazenar as datas
     int dia;
     Mes mes;
     int ano;
@@ -15,9 +15,10 @@ typedef struct data{
 
 int main(void){
 
-    Data* data = (Data*) malloc(sizeof(Data));
+    Data* data = (Data*) malloc(sizeof(Data));      //Alocando memoria para o vetor data
     if(data == NULL){exit(1);}
 
+    //Solicitando a data
     printf("Digite o dia: \n");
     scanf("%d", &data->dia);
     printf("1 - JANEIRO\n2 - FEVEREIRO\n3 - MARCO\n4 - ABRIL\n5 - MAIO\n6 - JUNHO\n7 - JULHO\n8 - AGOSTO\n9 - SETEMBRO\n10 - OUTUBRO\n11 - NOVEMBRO\n12 - DEZEMBRO\nEscolha uma opcao para o mes: \n");
@@ -25,6 +26,7 @@ int main(void){
     printf("Digite o ano: \n");
     scanf("%d", &data->ano);
 
+    //Estrutura encadeada de if's e else's para imprimir a data com o mes correspondente ao que o usuario colocou
     if(data->mes == JANEIRO){
         printf("%d/01/%d", data->dia, data->ano);
     }else if(data->mes == FEVEREIRO){
@@ -53,7 +55,7 @@ int main(void){
         printf("Opcao invalida para o mes!");
     }
 
-    free(data);
+    free(data); //Limpando memoria
 
     return 0;
 }
