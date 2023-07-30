@@ -17,7 +17,7 @@ void maior_menor(Funcionario * funcionario, int quant_funcionario);
 int main(void){
     int quant_funcionario;
 
-    printf("Qunatos funcionarios participaram da pesquisa: \n");
+    printf("Quantos funcionarios participaram da pesquisa: \n");
     scanf("%d", &quant_funcionario);
     printf("\n");
 
