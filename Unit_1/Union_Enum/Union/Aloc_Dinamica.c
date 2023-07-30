@@ -1,11 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef union ia{
+typedef union ia{      //Declarando uma unum para os indices de rendimento academico 
     float IG, IRA, IRT;
 }IA;
 
-typedef struct aluno{
+typedef struct aluno{     //Declarando uma struct para armazenar os dados dos alunos 
     char nome[20];
     int mat;
     char curso[20];
@@ -14,10 +14,11 @@ typedef struct aluno{
 
 int main(void){
 
-    Aluno * aluno = (Aluno*) malloc(sizeof(Aluno));
+    Aluno * aluno = (Aluno*) malloc(sizeof(Aluno));     //Alocando memoria para o vetor aluno
     if(aluno == NULL){exit(1);}
     int opcao;
 
+    //Solicitando os dados do aluno
     printf("Digite o nome: ");
     scanf(" %[^\n]", aluno->nome);
     printf("Digite o mat: ");
@@ -28,6 +29,7 @@ int main(void){
     printf("Escola uma opcao: ");
     scanf("%d", &opcao);
 
+    //"switch" para o usuario escolher que das opcoes ele escolhera
     switch (opcao)
     {
     case 1:
@@ -44,6 +46,7 @@ int main(void){
         break;    
     }
 
+    //Imprimindo os dados digitados
     printf("Aluno:\nNome: %s \nMatricula: %d \nCurso: %s \nIndice academico: %.2f", aluno->nome, aluno->mat, aluno->curso, aluno->indice.IG);
 
     return 0;
