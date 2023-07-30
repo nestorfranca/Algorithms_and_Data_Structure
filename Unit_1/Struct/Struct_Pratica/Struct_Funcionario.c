@@ -6,12 +6,12 @@ typedef struct funcionario{     //Declarando uma struct para armazenar os dados 
     float salario;
     int id;
     char cargo[20];
-}Funcionario; 
+}Funcionario;
 
-//Declaracao das funcoes 
+//Declaracao das funcoes
 Funcionario * Dados_pessoais(int quant_funcionario);
 void imprime(Funcionario * funcionario, int quant_funcionario);
-//void new_salario(Funcionario * funcionario);
+void new_salario(Funcionario * funcionario, int qnt);
 void maior_menor(Funcionario * funcionario, int quant_funcionario);
 
 int main(void){
@@ -24,7 +24,8 @@ int main(void){
     //Chamando as funcoes
     Funcionario * funcionario = Dados_pessoais(quant_funcionario);
     imprime(funcionario, quant_funcionario);
-   // new_salario(funcionario);
+    new_salario(funcionario, quant_funcionario);
+    imprime(funcionario, quant_funcionario);
     maior_menor(funcionario, quant_funcionario);
 
     //Limpando a memoria
@@ -62,7 +63,7 @@ Funcionario * Dados_pessoais(int quant_funcionario){
 //Funcao que imprime os dados dos funcionarios
 void imprime(Funcionario * funcionario, int quant_funcionario){
     int indice;
-    
+
     //Imprimindo os dados
     for(indice = 0; indice < quant_funcionario; indice++){
         printf("\nDados do %dª funcionario:\nNome: %s\nID: %d\nCargo: %s\nSalario: %.2f\n", indice+1, funcionario[indice].nome, funcionario[indice].id, funcionario[indice].cargo, funcionario[indice].salario);
@@ -70,16 +71,24 @@ void imprime(Funcionario * funcionario, int quant_funcionario){
 
 }
 
-/*void new_salario(Funcionario * funcionario){
-    int final;
-    
-    while(final == 0){
-        printf("Caso deseje mudar o salario de algum funcionario:")
-            printf("\nDigite o novo salaraio: \n");
-            scanf("%f", &funcionario->salario);
-            printf("\nNovo salario: %.2f\n", funcionario->salario);
-    }
-}*/
+//Funcao para atualizar o salario
+void new_salario(Funcionario * funcionario, int qnt){
+    int final, indice;
+    do
+    {
+       printf("\nCaso nao deseje mudar nenhum salario, digite 0, caso deseje, digite o id do funcionario: \n");
+        scanf("%d", &final);
+        if(final != 0){
+            for(indice = 0; indice < qnt; indice++){
+                if(final == funcionario[indice].id){
+                    printf("\nDigite o novo salaraio de %s: \n", funcionario[indice].nome);
+                    scanf("%f", &funcionario[indice].salario);
+                    printf("O novo salario de %s e: %.2f\n", funcionario[indice].nome, funcionario[indice].salario);
+                }
+            }
+        }
+    } while (final != 0);  
+}
 
 //Funcao para saber qual dos funcionarios tem o maior e o menor salario
 void maior_menor(Funcionario * funcionario, int quant_funcionario){
@@ -94,7 +103,7 @@ void maior_menor(Funcionario * funcionario, int quant_funcionario){
         }
     }
 
-    //Imprimindo o menor e o maior salario
+     //Imprimindo o menor e o maior salario
     printf("\n");
     printf("O funcionario que tem o maior salario é %s, com o salario de %.2f\n", funcionario[num_maior_salario].nome, funcionario[num_maior_salario].salario);
     printf("O funcionario que tem o menor salario é %s, com o salario de %.2f\n", funcionario[num_menor_salario].nome, funcionario[num_menor_salario].salario);
