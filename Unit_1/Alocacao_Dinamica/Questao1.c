@@ -13,11 +13,13 @@ int main(void){
     printf("Quantas pessoas realizaram a entrevista:\n");
     scanf("%d", &pessoas);
 
+    //Alocando memoria para o vetor que armazena o sexo 
     vetor_sexo = (char*) malloc(pessoas *sizeof(char));
     if (vetor_sexo == NULL){
         printf("Erro na alocacao de memoria!");
         exit(1);
     }
+    //Alocando memoria para o vetor que armazena o feedback 
     vetor_feedback = (char*) malloc(pessoas *sizeof(char));
     if (vetor_feedback == NULL){
         printf("Erro na alocacao de memoria!");
@@ -25,6 +27,7 @@ int main(void){
     }
 
     int contador;
+    //Laço "for" para solicitar o sexo e o feedback
     for(contador=0; contador < pessoas; contador++){
         printf("Digite 'F' se for mulher ou 'M' se for homem:\n");
         scanf("%s", &vetor_sexo[contador]);
@@ -47,12 +50,14 @@ int main(void){
         }
     }
    
+    //Calculando a porcentagem das mulheres que gostaram e dos homens que nao gostaram
     porcent_F=(porcent_F/Mulher)*100;
     porcent_M=(porcent_M/Homem)*100;
 
     printf("%.2f das mulheres gostaram do produto\n", porcent_F);
     printf("%.2f dos homens nao gostaram do produto", porcent_M);
 
+    //Limpando a memoria
     free(vetor_sexo);
     free(vetor_feedback);
 

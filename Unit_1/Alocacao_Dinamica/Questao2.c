@@ -66,6 +66,7 @@ int main(void){
 
     printf("A porcetagem de aprovados foi: %.2f\n", porcent);
 
+    //Limpando a memoria 
     for(contador=0; contador < alunos; contador++){
         free(respostas[contador]);
     }
