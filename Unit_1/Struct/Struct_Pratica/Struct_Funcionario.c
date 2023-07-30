@@ -21,6 +21,7 @@ int main(void){
     scanf("%d", &quant_funcionario);
     printf("\n");
 
+    //Chamando as funcoes
     Funcionario * funcionario = Dados_pessoais(quant_funcionario);
     imprime(funcionario, quant_funcionario);
    // new_salario(funcionario);
