@@ -39,10 +39,12 @@ int main(void){
         scanf("%d", &vetor_idade[contador]);
     }
 
+    //Imprimindo na tela do usuario 
     for(contador=0; contador < pessoas; contador++){
         printf("Nome: %s, idade: %d.\n", matriz_nomes[contador], vetor_idade[contador]);
     }
 
+    //Limpando memoria
     for(contador=0; contador < pessoas; contador++){
         free(matriz_nomes[contador]);
     }
