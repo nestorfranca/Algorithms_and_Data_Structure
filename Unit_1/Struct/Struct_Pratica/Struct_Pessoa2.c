@@ -16,14 +16,18 @@ void velha_nova(Pessoa * pessoa, int quant_pessoas);
 int main(void){
     int quant_pessoas;
 
+    //Perguntando ao usuario quantas pessoas participaram da pesquisa
     printf("Quantas pessoas participaram da pesquisa:\n");
     scanf("%d", &quant_pessoas);
     printf("\n");
    
-    Pessoa * pessoa = Dados(quant_pessoas);
-    imprima(pessoa, quant_pessoas);
-    velha_nova(pessoa, quant_pessoas);
+    Pessoa * pessoa = Dados(quant_pessoas); //Chamando a funcao Dados e armazenando seus resultados em um vetor 
+    imprima(pessoa, quant_pessoas);     //Chamando a funcao para imprimir
+    velha_nova(pessoa, quant_pessoas);      //Chamando a funcao para saber quem é a pessoa mais velha e nova
 
+    //Limpando a memoria
+    free(pessoa);
+    
     return 0;
 }
 

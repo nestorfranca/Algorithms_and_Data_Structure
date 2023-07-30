@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-typedef struct pessoa{
+typedef struct pessoa{      //Declarando uma struct para armazenar os dados da pessoa
     char nome[25];
     int idade;
     float altura;
@@ -9,8 +9,9 @@ typedef struct pessoa{
 
 int main(void){
 
-    Pessoa var_pessoa;
+    Pessoa var_pessoa;  //Alocando memoria estaticamente para o vetor var_pessoa
 
+    //Solicitando e logo apos imprimindo os dados fornecidos
     printf("Digite o nome:\n");
     scanf(" %[^\n]", var_pessoa.nome);
 
