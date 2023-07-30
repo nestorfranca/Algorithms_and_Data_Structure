@@ -55,6 +55,9 @@ int main(void){
     //Chamando a funcao que imprime os dados
     imprime(funcionario, QNT_FUNCIONARIO);
 
+    //Limpando a memoria 
+    free(funcionario);
+
     return 0;
 }
 

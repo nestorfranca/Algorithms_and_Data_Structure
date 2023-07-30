@@ -45,5 +45,8 @@ int main(void){
     //Chamando a funcao que cadastra os funcionario 
     CadastraFuncionario(vetor, quant_funcionario);
 
+    //Limpando a memoria
+    free(vetor);
+    
     return 0;
 }

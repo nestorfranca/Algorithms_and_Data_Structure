@@ -25,6 +25,9 @@ int main(void){
     Banco * banco = vetor_banco(qnt_contas);
     imprime(banco, qnt_contas);
 
+    //Limpando a memoria
+    free(banco);
+
     return 0;
 }
 
