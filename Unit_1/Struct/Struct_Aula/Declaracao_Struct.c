@@ -1,5 +1,6 @@
 #include <stdio.h>
 
+//Declarando uma strcut para armazenar os dados do aluno
 typedef struct aluno {
     char nome[20];
     int idade;
@@ -12,7 +13,8 @@ int main(void){
 
     //struct aluno var_aluno;   [Outra maneira de declarar]
     Aluno var_aluno;
-
+    
+    //Solicitando os dados
     printf("Digite o nome:\n");
     scanf(" %[^\n]", var_aluno.nome);
 
@@ -22,6 +24,7 @@ int main(void){
     printf("Digite a matricula:\n");
     scanf("%d", &var_aluno.matricula);
     
+    //Imprimindo os dados
     printf("Os dados informados:\nNome:%s \t idade:%d \t matricula:%d  ", var_aluno.nome, var_aluno.idade, var_aluno.matricula);
 
     return 0;
