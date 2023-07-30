@@ -8,7 +8,7 @@ typedef struct funcionario{     //Declarando uma struct para armazenar os dados 
     char cargo[20];
 }Funcionario;
 
-//Declaracao das funcoes
+//Declaracao das funcoes 
 Funcionario * Dados_pessoais(int quant_funcionario);
 void imprime(Funcionario * funcionario, int quant_funcionario);
 //void new_salario(Funcionario * funcionario);
