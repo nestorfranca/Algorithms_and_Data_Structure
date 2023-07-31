@@ -31,7 +31,7 @@ int main(void){
         printf("Digite o saldo:\n");
         scanf("%f", &var_conta[i].saldo);
 
-        prinf("\n");
+        printf("\n");
     }
 
     //imprimindo os dados na tela do usuario 
