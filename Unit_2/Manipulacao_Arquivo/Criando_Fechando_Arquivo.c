@@ -9,7 +9,8 @@ int main(void){
         printf("Erro na abertura do arquivo!\n");
         exit(1);
     }else{ printf("Arquivo criado!\n ");}
-    
+
+    // fclose(fp); usado para fechar o arquivo
     if(!fclose(fp)){    //Fechar arquivo
         printf("Arquivo fechado!\n");
     } 
