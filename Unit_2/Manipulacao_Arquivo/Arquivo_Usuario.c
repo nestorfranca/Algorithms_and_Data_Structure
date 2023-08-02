@@ -14,7 +14,7 @@ int main(void){
     }else {
         printf("Aquivo criado com sucesso");
     }
-    sclose(arquivo);  //FECHA ARQUIVO
+    fclose(arquivo);  //FECHA ARQUIVO
 
     return 0;
 }
