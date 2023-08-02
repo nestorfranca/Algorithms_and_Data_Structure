@@ -20,6 +20,8 @@ int main(void){
         printf("Aquivo criado com sucesso\n");
     }
     fputc('A', arquivo);       //ESCREVE 'A' NO ARQUIVO CRIADO
+
+    fclose(arquivo);   //FECHA ARQUIVO
     
     arquivo = fopen("arquivo.txt", "r");
     if(arquivo == NULL){
