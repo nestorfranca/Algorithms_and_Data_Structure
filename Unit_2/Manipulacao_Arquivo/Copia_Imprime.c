@@ -29,7 +29,7 @@ int main(void){
         return 1;
     }
 
-    while (!feof(arquivo)){     //CHECA SE CHEGOU NO FNAL DO ARQUIVO
+    while (!feof(arquivo)){     //CHECA SE CHEGOU NO FINAL DO ARQUIVO
         c = fgetc(arquivo);     //COPIA O CARACTER
         printf("%c", c);    //IMPRIME O CARACTER
     }
