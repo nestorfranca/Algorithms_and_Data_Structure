@@ -50,7 +50,8 @@ void copia_dados(FILE* fl, int n, Funcionario** pessoal){
               
     while(fgets(linha,100,fl) != NULL){
         pessoal[index] = new_funcionario();
-        sscanf(linha, "%4[^\t]%20[^\t]%c\t%f", pessoal[index]->funcional, pessoal[index]->nome, &pessoal[index]->depto, &pessoal[index]->salario);
+        sscanf(linha, "%s\t%s\t%c\t%f", pessoal[index]->funcional, pessoal[index]->nome, &pessoal[index]->depto, &pessoal[index]->salario);
+        printf("%s", pessoal[index]->funcional);
         index++;
     }
 }
@@ -59,12 +60,12 @@ void imprime_folha_pagamento(int n, Funcionario** pessoal, char depto){
 
     int index = 0;
     //printf("%d ", index);
-    printf("%c", pessoal[4]->depto);
-    printf("%c", depto);
-    //for(index; index < n+1; index++){
-    //   int result = strcmp(depto, pessoal[index]->depto);
-    //   if(result == 0){
-    //       printf(",,,,,");
-    //    }
-    //}
+   // printf("%c", pessoal[4]->depto);
+    //printf("%c", depto);
+    for(index; index < n+1; index++){
+       int result = strcmp(depto, pessoal[index]->depto);
+       if(result == 0){
+           printf(",,,,,");
+        }
+    }
 }
