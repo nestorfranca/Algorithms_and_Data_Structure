@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+//Declarando a struct para armazenar os dados dos funcionarios
 typedef struct funcionario{
     char funcional[3];
     char nome[20];
@@ -22,7 +23,7 @@ Funcionario *new_funcionario(void){
 
 int main(void){
 
-    int quant_funcionario;
+    int quant_funcionario, index = 0;
     FILE *file;
     file = fopen("Arquivo.txt", "r");
     if(file == NULL){
@@ -31,6 +32,7 @@ int main(void){
     }
     
     fscanf(file, "%d", &quant_funcionario);
+    //printf("%d", quant_funcionario);
     Funcionario **funcionario = (Funcionario**) calloc(quant_funcionario+1,sizeof(Funcionario*));
 
     copia_dados(file, quant_funcionario, funcionario);
@@ -39,6 +41,9 @@ int main(void){
     imprime_folha_pagamento(quant_funcionario, funcionario, 'C');
 
     fclose(file);
+    for(index; index < quant_funcionario; index++){
+        free(funcionario[index]);
+    }
     free(funcionario);
 
     return 0;
@@ -70,5 +75,5 @@ void imprime_folha_pagamento(int n, Funcionario** pessoal, char depto){
           soma_salario += pessoal[index]->salario;
        }
     }
-    printf("VALOR TOTAL: R$ %.2f\n\n", soma_salario);
+    printf("VALOR TOTAL: R$ %.2f\n\n", soma_salario); 
 }
