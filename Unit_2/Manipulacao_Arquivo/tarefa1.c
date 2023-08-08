@@ -34,8 +34,10 @@ int main(void){
     //printf("%d", quant_funcionario);
     Funcionario **funcionario = (Funcionario**) calloc(quant_funcionario+1,sizeof(Funcionario*));
 
-    copia_dados(file, quant_funcionario+1, funcionario);
+    copia_dados(file, quant_funcionario, funcionario);
     imprime_folha_pagamento(quant_funcionario, funcionario, 'A');
+    imprime_folha_pagamento(quant_funcionario, funcionario, 'B');
+    imprime_folha_pagamento(quant_funcionario, funcionario, 'C');
 
     fclose(file);
     free(funcionario);
@@ -51,7 +53,7 @@ void copia_dados(FILE* fl, int n, Funcionario** pessoal){
     while(fgets(linha,100,fl) != NULL){
         pessoal[index] = new_funcionario();
         sscanf(linha, "%s\t%s\t%c\t%f", pessoal[index]->funcional, pessoal[index]->nome, &pessoal[index]->depto, &pessoal[index]->salario);
-        printf("%s", pessoal[index]->funcional);
+        //printf("%s", pessoal[index]->funcional);
         index++;
     }
 }
@@ -59,13 +61,15 @@ void copia_dados(FILE* fl, int n, Funcionario** pessoal){
 void imprime_folha_pagamento(int n, Funcionario** pessoal, char depto){
 
     int index = 0;
-    //printf("%d ", index);
-   // printf("%c", pessoal[4]->depto);
-    //printf("%c", depto);
+    float soma_salario = 0.0;
+    
+    printf("FOLHA DE PAGAMENTO DEPTO %c\n", depto);
+    printf("FUNCIONAL\tNOME\t\tDEPTO\t\tSALARIO\n");
     for(index; index < n+1; index++){
-       int result = strcmp(depto, pessoal[index]->depto);
-       if(result == 0){
-           printf(",,,,,");
-        }
+      if(depto == pessoal[index]->depto){
+          printf("%-s\t\t%-s\t\t%-c\t\t%-.2f\n", pessoal[index]->funcional, pessoal[index]->nome, pessoal[index]->depto, pessoal[index]->salario);
+          soma_salario += pessoal[index]->salario;
+       }
     }
+    printf("VALOR TOTAL: R$ %.2f\n\n", soma_salario);
 }
