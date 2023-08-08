@@ -31,7 +31,6 @@ int main(void){
     }
     
     fscanf(file, "%d", &quant_funcionario);
-    //printf("%d", quant_funcionario);
     Funcionario **funcionario = (Funcionario**) calloc(quant_funcionario+1,sizeof(Funcionario*));
 
     copia_dados(file, quant_funcionario, funcionario);
