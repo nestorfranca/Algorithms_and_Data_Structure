@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "contabancaria.h"
 #include "contabancaria.c"
 
 #define MAX_CONTAS 5
@@ -39,7 +38,7 @@ int main(void){
           scanf(" %[^\n]", titular);
           printf("Digite o numero da conta:\n");
           scanf("%d", &numero);
-          conta[contador_contas] = cria_conta(*titular, numero);
+          conta[contador_contas] = cria_conta(titular, numero);
           contador_contas++;
           break;
 
@@ -48,7 +47,7 @@ int main(void){
           scanf("%d", &numero);
           printf("Digite o valor a ser depositado:\n");
           scanf("%f", &deposito);
-          num_conta = localiza(conta, numero);
+          num_conta = localiza(*conta, numero);
           deposita(conta[num_conta], deposito);
 
           break;
@@ -58,7 +57,7 @@ int main(void){
           scanf("%d", &numero);
           printf("Digite o valor a ser depositado:\n");
           scanf("%f", &saque);
-          num_conta = localiza(conta, numero);
+          num_conta = localiza(*conta, numero);
           saca(conta[num_conta], saque);
 
           break;
@@ -66,10 +65,10 @@ int main(void){
         case 4:
           printf("Digite o numero da conta:");
           scanf("%d", &numero);
-          num_conta = localiza(conta, numero);
+          num_conta = localiza(*conta, numero);
           printf("Digite o numero da conta:");
           scanf("%d", &numero);
-          num_conta2 = localiza(conta, numero);
+          num_conta2 = localiza(*conta, numero);
           printf("Digite o valor a ser depositado:\n");
           scanf("%f", &transferir);
           transfere(conta[num_conta], conta[num_conta2], transferir);
@@ -79,15 +78,16 @@ int main(void){
         case 5:
           printf("Digite o numero da conta:");
           scanf("%d", &numero);
-          num_conta = localiza(conta, numero);
+          num_conta = localiza(*conta, numero);
           saldo_conta = saldo(conta[num_conta]);
+          printf("Salso: R$", saldo_conta);
 
           break;
 
         case 6:
           printf("Digite o numero da conta:");
           scanf("%d", &numero);
-          num_conta = localiza(conta, numero);
+          num_conta = localiza(*conta, numero);
           excluir(conta[num_conta]);
 
           break;
