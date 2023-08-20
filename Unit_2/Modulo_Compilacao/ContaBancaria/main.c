@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "contabancaria.h"
 #include "contabancaria.c"
 
 #define MAX_CONTAS 5
@@ -24,7 +25,7 @@ int main(void){
 
     do
     {
-      opcao = opcoes;
+      opcao = opcoes();
 
       switch (opcao)
       {
@@ -80,7 +81,7 @@ int main(void){
           scanf("%d", &numero);
           num_conta = localiza(*conta, numero);
           saldo_conta = saldo(conta[num_conta]);
-          printf("Salso: R$", saldo_conta);
+          printf("Saldo: R$ %.2f", saldo_conta);
 
           break;
 
