@@ -24,7 +24,7 @@ void aluno_libera(Aluno *a){
 }
 
 void aluno_imprime(Aluno *a){
-    printf("Nome: %s, Nota: %.f", a->nome, a->nota);
+    printf("\nNome: %s, Nota: %.f", a->nome, a->nota);
 }
 
 void aluno_ordena(int n, Aluno **v){
@@ -61,7 +61,7 @@ void aluno_salva(FILE *fl, int n, Aluno **v){
 
     int i;
     for(i = 0; i < n; i++){
-        sprintf(fl, "%d - Nome: %s\tNota: %.2f\n", i+1, v[i]->nome, v[i]->nota);
+        fprintf(fl, "%d - Nome: %s\tNota: %.2f\n", i+1, v[i]->nome, v[i]->nota);
     }
 
     fclose(fl);

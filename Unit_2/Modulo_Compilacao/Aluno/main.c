@@ -17,7 +17,7 @@ int main(void){
     for(index = 0; index < MAX_ALUNO; index++){
         printf("\nNome: ");
         scanf(" %99[^\n]", nome);
-        printf("\nNota: ");
+        printf("Nota: ");
         scanf("%f", &nota);
 
         aluno[index] = aluno_cria(nome, nota);
