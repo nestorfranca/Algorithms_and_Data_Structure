@@ -37,7 +37,7 @@ void saca(ContaBancaria *conta, float saque){
     if(conta->saldo >= saque){
         conta->saldo -=saque;
     }else{
-        printf("Saldo insuficiente!\n\n");
+        printf("Saldo insuficiente!\n");
     }
 }
 
@@ -46,7 +46,7 @@ void transfere(ContaBancaria *conta1, ContaBancaria *conta2, float transferir){
         conta2->saldo = conta1->saldo;
         conta1->saldo -= transferir;
     }else{
-        printf("Saldo insuficiente!\n\n");
+        printf("Saldo insuficiente!\n");
     }
 }
 
